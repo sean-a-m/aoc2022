@@ -6,12 +6,12 @@
 
 (def 🧝🧝🧝 (str/split 📄 #"\n\n"))
 
-(defn- sumList [list]
-  (let [nums (str/split-lines list)]
+(defn- sumList [🧝]
+  (let [calories (str/split-lines 🧝)]
     (reduce +
-            (map #(Integer/parseInt %) nums))))
+            (map #(Integer/parseInt %) calories))))
 
-(defn- calculate-elf-cals []
+(defn- calculate-top-elf-cals []
   (let [sums (map sumList 🧝🧝🧝)]
     (->> sums
          (sort)
@@ -21,12 +21,4 @@
 
 (defn -main
   [& args]
-  (println (calculate-elf-cals)))
-
-(comment (let [sums (map sumList 🧝🧝🧝)]
-           (->> sums
-                (sort)
-                (reverse)
-                (take 3)
-                (reduce +))))
-
+  (println (calculate-top-elf-cals)))
