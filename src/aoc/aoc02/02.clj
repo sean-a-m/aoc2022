@@ -4,13 +4,11 @@
 
 (def 🪨📄✂️ (slurp "resources/aoc02input"))
 
-(def rps-map
+(def tokens
   {"A" :rock
    "B" :paper
-   "C" :scissors})
-
-(def rps-outcome-map
-  {"X" :lose
+   "C" :scissors
+   "X" :lose
    "Y" :draw
    "Z" :win})
 
@@ -28,9 +26,8 @@
     (cond (= outcome :draw) hand
           :else (get-in hands [hand outcome]))))
 
-(defn- map-code [code]
-  (let [[hand outcome] (str/split code #" ")]
-    (list (rps-map hand) (rps-outcome-map outcome))))
+(defn- tokenize[code]
+  (map tokens (str/split code #" ")))
 
 (defn- score-round [round]
   (let [outcome (second round)
@@ -41,6 +38,6 @@
 (defn score-all []
   (->> 🪨📄✂️
        (str/split-lines)
-       (map map-code)
+       (map tokenize)
        (map score-round)
        (reduce +)))
