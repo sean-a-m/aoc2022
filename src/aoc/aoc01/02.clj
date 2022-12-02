@@ -1,8 +1,8 @@
-(ns aoc01.core
+(ns aoc.aoc01.02
   (:gen-class)
   (:require [clojure.string :as str]))
 
-(def 📄 (slurp "input"))
+(def 📄 (slurp "resources/aoc01input"))
 
 (def 🧝🧝🧝 (str/split 📄 #"\n\n"))
 
@@ -19,6 +19,6 @@
          (take 3)
          (reduce +))))
 
-(defn -main
+(defn aoc01
   [& args]
   (println (calculate-top-elf-cals)))

@@ -1,8 +1,8 @@
-(ns aoc01.aoc022
+(ns aoc.aoc02.02
   (:gen-class)
   (:require [clojure.string :as str]))
 
-(def 🪨📄✂️ (slurp "aoc2input"))
+(def 🪨📄✂️ (slurp "resources/aoc02input"))
 
 (def rps-map 
   {"A" :rock
